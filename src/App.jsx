@@ -39,11 +39,19 @@ function App() {
     <TodoContextProvider value={{todos, addTodo, updateTodo, deleteTodo, toggleComplete}}>
       <div className='flex flex-col items-center w-full h-screen bg-gray-500 '>
         <TodoForm />
-        {
+        <ul>
+          {
           todos.map((todo)=>
-            <TodoItem todo={todo}/>
+            
+              <li key={todo.id}>
+                <TodoItem todo={todo}/>
+              </li>
+            
+            
           )
         }
+        </ul>
+        
         
       </div>
       
