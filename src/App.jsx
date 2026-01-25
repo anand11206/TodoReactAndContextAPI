@@ -3,7 +3,6 @@ import TodoForm from './components/TodoForm'
 import TodoItem from './components/TodoItem'
 import { TodoContextProvider } from './context/TodoContext'
 
-
 function App() {
   const [todos, setTodos] = useState([])
 
@@ -18,12 +17,14 @@ function App() {
   },[todos])
 
   const addTodo = (todo) => {
-    setTodos([{id:Date.now(), todoMsg:todo, completed: false}, ...todos])
+    if(todo){
+      setTodos([{id:Date.now(), todoMsg:todo, completed: false}, ...todos])
+    }
+    
   }
 
   const updateTodo = (id, todo) => {
     setTodos(todos.map((t) => t.id === id ? {...todo} : t))
-    console.log(todos)
   }
 
   const deleteTodo = (id) => {
@@ -34,11 +35,15 @@ function App() {
     setTodos(todos.map((t) => t.id === id ? {...t, completed:!t.completed} : t))
 
   }
-  
+ 
   return (
     <TodoContextProvider value={{todos, addTodo, updateTodo, deleteTodo, toggleComplete}}>
-      <div className='flex flex-col items-center w-full h-screen bg-gray-500 '>
-        <TodoForm />
+      <div className='min-h-screen flex flex-col items-center bg-gradient-to-br from-indigo-300 via-purple-300 to-pink-300 '>
+        <div className='bg-pink-50 m-20 flex flex-col w-170 rounded-2xl shadow-2xl p-6 pt-10 items-center justify-center'>
+          <div
+          className='p-4 text-6xl font-bold text-violet-900'
+          >Todo App</div>
+          <TodoForm />
         <ul>
           {
           todos.map((todo)=>
@@ -51,6 +56,7 @@ function App() {
           )
         }
         </ul>
+        </div>
         
         
       </div>

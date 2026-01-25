@@ -2,14 +2,15 @@ import React, { useState } from 'react'
 import {useTodo} from '../context/TodoContext'
 
 function TodoItem({todo}) {
-  console.log(todo)
+  
   const [isTodoEditable, setIsTodoEditable] = useState(false)
-  const {todos, updateTodo, deleteTodo, toggleComplete} = useTodo()
+  const {updateTodo, deleteTodo, toggleComplete} = useTodo()
   
   return (
-    <div>
-      <div className={(() => `m-2 px-4 rounded-xl ${todo.completed ? "bg-red-300" : "bg-green-300"}`)()} >
-        <input type="checkbox"
+    
+      <div className={(() => `m-2 px-4 h-14.5 mb-4 flex items-center justify-between shadow-gray-400 shadow-sm rounded-xl w-150 bg-white`)()} >
+        <div >
+          <input type="checkbox"
         checked={todo.completed}
         onChange={() => toggleComplete(todo.id)}
         />
@@ -21,22 +22,25 @@ function TodoItem({todo}) {
         }}
         readOnly={!isTodoEditable}
         />
-        <button type="button"
-        className='py-0.5 px-1 m-4 bg-white rounded-xs'
+        </div>
+       <div>
+         <button type="button"
+        className='py-0.5 px-1 m-4 w-10 h-10 rounded-full bg-white '
         onClick={() => setIsTodoEditable(!isTodoEditable)}
         >
-          {isTodoEditable ? "Save" : "Edit" }
+          {isTodoEditable ? "S" : "E" }
         </button>
         <button type="button"
-        className='px-1 py-0.5 bg-red-500 rounded-xs'
+        className='px-1 py-0.5 w-10 h-10 rounded-full bg-red-500'
         onClick={() => {
           deleteTodo(todo.id)
         }}
         >
-          Delete
+          D
         </button>
+       </div>
       </div>
-    </div>
+    
   )
 }
 
