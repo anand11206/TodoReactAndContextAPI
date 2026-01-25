@@ -31,39 +31,3 @@ function TodoForm() {
 }
 
 export default TodoForm
-
-
-
-// function TodoForm() {
-//   const [todoMsg, setTodoMsg] = useState("")
-//   const { addTodo } = useTodo()
-
-//   const add = (e) => {
-//     e.preventDefault()
-//     if (todoMsg.trim() === "") return
-//     addTodo(todoMsg)
-//     setTodoMsg("")
-//   }
-
-//   return (
-//     <form onSubmit={add} className="flex items-center gap-3">
-//       <input
-//         type="text"
-//         className="flex-1 h-12 px-4 rounded-lg border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 bg-white text-gray-800 shadow transition-all duration-200"
-//         placeholder="Add a todo..."
-//         value={todoMsg}
-//         onChange={(e) => setTodoMsg(e.target.value)}
-//       />
-//       <button
-//         type="submit"
-//         className="h-12 px-6 rounded-lg bg-gradient-to-r from-indigo-500 to-pink-500 text-white font-semibold shadow-lg hover:scale-105 hover:from-indigo-600 hover:to-pink-600 transition-all duration-200"
-//       >
-//         Add
-//       </button>
-//     </form>
-//   )
-// }
-
-// export default TodoForm
-
-
