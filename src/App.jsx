@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import TodoForm from './components/TodoForm'
 import TodoItem from './components/TodoItem'
 import { TodoContextProvider } from './context/TodoContext'
-import { AnimatePresence, motion } from 'framer-motion'
 
 function App() {
   const [todos, setTodos] = useState([])

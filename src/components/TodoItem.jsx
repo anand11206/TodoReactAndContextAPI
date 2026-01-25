@@ -4,7 +4,7 @@ import {useTodo} from '../context/TodoContext'
 function TodoItem({todo}) {
   
   const [isTodoEditable, setIsTodoEditable] = useState(false)
-  const {todos, updateTodo, deleteTodo, toggleComplete} = useTodo()
+  const {updateTodo, deleteTodo, toggleComplete} = useTodo()
   
   return (
     
